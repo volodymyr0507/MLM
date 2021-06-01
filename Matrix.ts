@@ -54,78 +54,26 @@ export class Matrix {
   * @return int
   */
   toArray(){return this.generateMatrix;}
-  /**
-  * Checks if matrix position is free
-  *
-  * @param Coord $coord
-  * @return bool
-  * @throws IncorrectCoordinatesMatrixException
-  */
-/*  hasTenant(coord:Coord){
-    if(this.isValidCoord(coord) === false) {
 
-    }
-    foreach ((generateMatrix)=>{this.generateMatrix.depth}){
-      if(d === coord.getDepth()){
-        foreach((depth)=>{depth.n,depth.index}) {
-          if (coord.getIndex() === n){
-            if(this.generateMatrix[d][n] === null){
-              return false;
-            }
-          }
-        }
-      }
-    }
-    return true;
-  }*/
-  
-  /**
-  * Take this matrix position
-  *
-  * @param Coord|null $coord
-  * @param callable $tenant
-  * @throws FilledMatrixException
-  * @throws IncorrectCoordinatesMatrixException
-  * @throws MatrixException
-  * @throws UnavailablePositionException
-  */
-  addTenant(coord:Coord|null, value:string):void {
+
+  addTenant(coord:Coord|null, call:string):void {
 
     if(coord === null) {
-      this.generateMatrix.forEach((depth,d)=>{
-       
-        depth.forEach((index, n)=>{
-          if(index === null) {
-       // console.log(n + "*");
-       // console.log(d);
-       
-          var result:string = value;
-            this.generateMatrix[d][n] = result;
-            return;
-            // console.log(this.generateMatrix);
+      for(var d:number = 0; d <= this.depth; ++d){
+        var isAdded = false;
+        for(var n:number = 0; n <= this.width; ++n){
+          if(this.generateMatrix[d][n] === null) {
+            this.generateMatrix[d][n] = call;
+            isAdded = true;
+            break;
           }
-        });
-      });
-    } else {
-      this.generateMatrix.forEach((depth,d)=>{
-        if(d === coord.getDepth()) {
-          depth.forEach((index, n)=>{
-            if(coord.getIndex() === n) {
-              var result:string;
-              this.generateMatrix[d][n] = result;
-            }
-          })
         }
-      })
+        if(isAdded)
+          break;
+      }
     }
   }
 
-  isFilled() {
-    this.generateMatrix.forEach((depth,d)=>{
-      if()
-    })
-
-  }
 }
 
  
