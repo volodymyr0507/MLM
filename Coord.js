@@ -14,13 +14,13 @@ var Coord = /** @class */ (function () {
     /**
      * @return int
     */
-    Coord.prototype.getDepth = function (int) {
+    Coord.prototype.getDepth = function () {
         return this.depth;
     };
     /**
      * @return int
     */
-    Coord.prototype.getIndex = function (int) {
+    Coord.prototype.getIndex = function () {
         return this.index;
     };
     return Coord;

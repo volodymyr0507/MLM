@@ -72,18 +72,32 @@ var Matrix = /** @class */ (function () {
     * @throws MatrixException
     * @throws UnavailablePositionException
     */
-    Matrix.prototype.addTenant = function (coord, name) {
+    Matrix.prototype.addTenant = function (coord, value) {
         var _this = this;
         if (coord === null) {
             this.generateMatrix.forEach(function (depth, d) {
                 depth.forEach(function (index, n) {
                     if (index === null) {
-                        console.log(n + "*");
-                        console.log(d);
-                        _this.generateMatrix[d][n] = name;
+                        // console.log(n + "*");
+                        // console.log(d);
+                        var result = value;
+                        _this.generateMatrix[d][n] = result;
+                        return;
                         // console.log(this.generateMatrix);
                     }
                 });
+            });
+        }
+        else {
+            this.generateMatrix.forEach(function (depth, d) {
+                if (d === coord.getDepth()) {
+                    depth.forEach(function (index, n) {
+                        if (coord.getIndex() === n) {
+                            var result;
+                            _this.generateMatrix[d][n] = result;
+                        }
+                    });
+                }
             });
         }
     };

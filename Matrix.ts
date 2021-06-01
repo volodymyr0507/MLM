@@ -89,22 +89,42 @@ export class Matrix {
   * @throws MatrixException
   * @throws UnavailablePositionException
   */
+  addTenant(coord:Coord|null, value:string):void {
 
-  addTenant(coord:Coord|null, :void {
     if(coord === null) {
       this.generateMatrix.forEach((depth,d)=>{
        
         depth.forEach((index, n)=>{
           if(index === null) {
-       console.log(n + "*");
-       console.log(d);
-            name = 
-            this.generateMatrix[d][n] = name;
+       // console.log(n + "*");
+       // console.log(d);
+       
+          var result:string = value;
+            this.generateMatrix[d][n] = result;
+            return;
             // console.log(this.generateMatrix);
           }
         });
       });
+    } else {
+      this.generateMatrix.forEach((depth,d)=>{
+        if(d === coord.getDepth()) {
+          depth.forEach((index, n)=>{
+            if(coord.getIndex() === n) {
+              var result:string;
+              this.generateMatrix[d][n] = result;
+            }
+          })
+        }
+      })
     }
+  }
+
+  isFilled() {
+    this.generateMatrix.forEach((depth,d)=>{
+      if()
+    })
+
   }
 }
 

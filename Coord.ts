@@ -20,14 +20,14 @@ export class Coord {
   /**
    * @return int
   */
-  getDepth(int) 
+  getDepth() 
   {
     return this.depth;
   }
   /**
    * @return int
   */
-  getIndex(int) 
+  getIndex() 
   {
     return this.index;
   }
