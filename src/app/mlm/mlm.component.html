@@ -1,0 +1,15 @@
+<div class="container">
+  <div *ngFor="let user of users; let i = index" [attr.data-index]="i" class="panel">
+    {{ disUser.name }}'s Points: {{ disUser && disUser.points }}
+    <div *ngFor="let row of user.matrix" class="column">
+      <div *ngFor="let column of row" class="node" (click)="go(column.user_id)">
+        {{ column ? column.name : '' }}
+      </div>
+    </div>
+    <div class="join">
+      <button *ngIf="!user.isCompleted" (click)="join(user.user, i)" class="button">JOIN</button>
+      <button *ngIf="user.isCompleted" (click)="reward(i)" class="button">Reward</button>
+    </div>
+  </div>
+</div>
+
